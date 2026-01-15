@@ -75,13 +75,13 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Surviving the Nairobi Salary Delay',
                 'excerpt' => 'A practical guide to maintaining morale when the "check is in the mail" for the third week running.',
                 'category_id' => 3, // Career
-                'image_path' => 'https://images.unsplash.com/photo-1634733988685-a91a649ee448?q=80&w=1470&auto=format&fit=crop',
+                'image_path' => 'StruggleNai.png',
             ],
             [
                 'title' => 'Matatu Wisdom for CEOs',
                 'excerpt' => 'Aggressive expansion, route optimization, and loud branding: What Ma3 culture teaches us about market dominance.',
                 'category_id' => 2, // Corporate
-                'image_path' => 'https://images.unsplash.com/photo-1543491427-4402eb6b349b?q=80&w=1470&auto=format&fit=crop',
+                'image_path' => 'nganya.avif',
             ],
             [
                 'title' => 'Gen Z: The New Corporate Code',

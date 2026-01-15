@@ -33,7 +33,7 @@
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row border-l-4 border-gold-500">
                 <div class="md:w-2/5 relative">
-                     <img src="https://placehold.co/400x500/0A192F/C5A059?text=Founder" alt="Founder" class="w-full h-full object-cover">
+                     <img src="{{ asset('images/Founder.jpeg') }}" alt="Founder" class="w-full h-full object-cover">
                 </div>
                 <div class="p-10 md:w-3/5 flex flex-col justify-center">
                     <span class="text-gold-600 font-bold uppercase tracking-widest text-xs mb-2">The Founder</span>

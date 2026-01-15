@@ -25,7 +25,7 @@
                 <article class="group flex flex-col h-full bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
                     <div class="h-56 overflow-hidden relative">
                          <div class="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors z-10"></div>
-                         <img src="https://placehold.co/600x400/{{ $loop->index % 2 == 0 ? '112240' : '0A192F' }}/C5A059?text={{ urlencode(Str::limit($article->title, 10)) }}" 
+                         <img src="{{ Str::startsWith($article->image_path, ['http', 'https']) ? $article->image_path : asset('storage/' . $article->image_path) }}" 
                               alt="{{ $article->title }}" 
                               loading="lazy"
                               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">

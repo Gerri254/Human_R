@@ -58,40 +58,46 @@ class DatabaseSeeder extends Seeder
         // 2. Articles (Kenyan Context)
         Article::truncate();
 
-        $titles = [
+        $articles = [
             [
                 'title' => 'Why Westlands Traffic Teaches Patience',
                 'excerpt' => 'If you can survive the Waiyaki Way deadlock at 5 PM, you can handle any board meeting.',
                 'category_id' => 1, // Life
+                'image_path' => 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1470&auto=format&fit=crop',
             ],
             [
                 'title' => 'The "Usiguze" Culture in HR',
                 'excerpt' => 'Navigating the sensitive boundaries of Kenyan corporate politics without stepping on toes.',
                 'category_id' => 2, // Corporate
+                'image_path' => 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop',
             ],
             [
                 'title' => 'Surviving the Nairobi Salary Delay',
                 'excerpt' => 'A practical guide to maintaining morale when the "check is in the mail" for the third week running.',
                 'category_id' => 3, // Career
+                'image_path' => 'https://images.unsplash.com/photo-1634733988685-a91a649ee448?q=80&w=1470&auto=format&fit=crop',
             ],
             [
                 'title' => 'Matatu Wisdom for CEOs',
                 'excerpt' => 'Aggressive expansion, route optimization, and loud branding: What Ma3 culture teaches us about market dominance.',
                 'category_id' => 2, // Corporate
+                'image_path' => 'https://images.unsplash.com/photo-1543491427-4402eb6b349b?q=80&w=1470&auto=format&fit=crop',
             ],
             [
-                'title' => 'The Art of the Kenyan "Pole Bas"',
-                'excerpt' => 'How two simple words can defuse a multimillion shilling crisis—if used correctly.',
-                'category_id' => 3, // Career
+                'title' => 'Gen Z: The New Corporate Code',
+                'excerpt' => 'Understanding the new generation entering the workforce and how they are reshaping corporate culture.',
+                'category_id' => 2, // Corporate
+                'image_path' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop',
             ],
             [
-                'title' => 'Tea & Mandazi: The Real Meeting',
-                'excerpt' => 'Why the most important decisions in Nairobi offices happen during the 10 AM tea break.',
+                'title' => 'Wellness is Not Just Pizza Parties',
+                'excerpt' => 'Real mental health support goes beyond superficial perks. Building a genuinely supportive environment.',
                 'category_id' => 1, // Life
+                'image_path' => 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop',
             ],
         ];
 
-        foreach ($titles as $index => $data) {
+        foreach ($articles as $index => $data) {
             Article::create([
                 'title' => $data['title'],
                 'slug' => Str::slug($data['title']),
@@ -100,7 +106,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => $data['category_id'],
                 'read_time' => rand(3, 8),
                 'is_featured' => $index < 3, // First 3 featured
-                'image_path' => null, // Or add placeholders if you have them
+                'image_path' => $data['image_path'],
             ]);
         }
 

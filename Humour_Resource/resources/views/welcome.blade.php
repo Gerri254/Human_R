@@ -27,9 +27,13 @@
                 </div>
             </div>
             <!-- Abstract Visual -->
-            <div class="hidden md:block relative">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-gold-500/20 rounded-full blur-3xl filter"></div>
-                <img src="https://placehold.co/600x700/112240/C5A059?text=Visual+Metaphor" alt="Abstract HR Art" class="relative z-10 rounded-lg shadow-2xl border border-white/5 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+            <div class="hidden md:block relative group">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gold-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform transition-transform duration-700 hover:rotate-1">
+                    <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Strategic HR Moves" 
+                         class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
+                </div>
             </div>
         </div>
     </header>

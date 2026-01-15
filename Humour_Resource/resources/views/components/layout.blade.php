@@ -129,6 +129,12 @@
                 <div class="mb-4 md:mb-0 text-center md:text-left">
                     <h5 class="text-2xl font-serif font-bold text-white mb-1">Humour<span class="text-gold-500">Resource</span></h5>
                     <p class="text-gray-500 text-sm">© {{ date('Y') }} NarrativeHR Excellence Platform.</p>
+                    <div class="mt-3">
+                         <a href="{{ route('portal.login') }}" class="text-gray-400 hover:text-gold-500 transition-colors text-sm flex items-center gap-2 justify-center md:justify-start">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            Client Portal
+                        </a>
+                    </div>
                 </div>
                 <div class="flex space-x-6 items-center">
                     <!-- LinkedIn -->

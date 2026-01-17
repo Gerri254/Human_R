@@ -35,9 +35,9 @@ WORKDIR /var/www
 # 7. Copy application files
 COPY . .
 
-# 8. Install PHP dependencies (FIX: Added --no-scripts)
-# We skip scripts here because .env variables aren't available yet
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+# 8. Install PHP dependencies
+# FIX: Added --ignore-platform-reqs to bypass strict version/extension checks during build
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts --ignore-platform-reqs
 
 # 9. Build Frontend Assets
 RUN npm install
@@ -47,5 +47,4 @@ RUN npm run build
 EXPOSE 8080
 
 # 11. Start command
-# We run package:discover here at runtime instead
 CMD sh -c "composer dump-autoload --optimize && php artisan serve --host=0.0.0.0 --port=8080"

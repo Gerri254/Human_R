@@ -1,7 +1,6 @@
 FROM php:8.2-cli
 
 # 1. Install system dependencies
-# Added libjpeg-dev, libfreetype6-dev for proper image support
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -17,22 +16,10 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client
 
 # 2. Configure & Install PHP extensions
-# Configure GD with JPEG and FreeType support
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-
-# Install extensions:
-# - pdo_mysql (Database)
-# - mbstring (String handling)
-# - exif (Image metadata)
-# - pcntl (Process control)
-# - bcmath (Math calculations)
-# - gd (Image processing)
-# - zip (Archives)
-# - intl (Filament requirement)
-# - opcache (Performance)
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl opcache
 
-# 3. Install Redis extension (Optional but recommended for Laravel)
+# 3. Install Redis extension
 RUN pecl install redis && docker-php-ext-enable redis
 
 # 4. Get latest Composer
@@ -48,8 +35,9 @@ WORKDIR /var/www
 # 7. Copy application files
 COPY . .
 
-# 8. Install PHP dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+# 8. Install PHP dependencies (FIX: Added --no-scripts)
+# We skip scripts here because .env variables aren't available yet
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
 # 9. Build Frontend Assets
 RUN npm install
@@ -59,4 +47,5 @@ RUN npm run build
 EXPOSE 8080
 
 # 11. Start command
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+# We run package:discover here at runtime instead
+CMD sh -c "composer dump-autoload --optimize && php artisan serve --host=0.0.0.0 --port=8080"

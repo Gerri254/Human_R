@@ -1,6 +1,7 @@
 FROM php:8.2-cli
 
-# 1. Install system dependencies (Added libicu-dev for intl)
+# 1. Install system dependencies
+# Added libjpeg-dev, libfreetype6-dev for proper image support
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -11,34 +12,51 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
     libicu-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     default-mysql-client
 
-# 2. Install PHP extensions (Added intl)
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl
+# 2. Configure & Install PHP extensions
+# Configure GD with JPEG and FreeType support
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
-# 3. Get latest Composer
+# Install extensions:
+# - pdo_mysql (Database)
+# - mbstring (String handling)
+# - exif (Image metadata)
+# - pcntl (Process control)
+# - bcmath (Math calculations)
+# - gd (Image processing)
+# - zip (Archives)
+# - intl (Filament requirement)
+# - opcache (Performance)
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl opcache
+
+# 3. Install Redis extension (Optional but recommended for Laravel)
+RUN pecl install redis && docker-php-ext-enable redis
+
+# 4. Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# 4. Install Node.js
+# 5. Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs
 
-# 5. Set working directory
+# 6. Set working directory
 WORKDIR /var/www
 
-# 6. Copy application files
+# 7. Copy application files
 COPY . .
 
-# 7. Install PHP dependencies
+# 8. Install PHP dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# 8. Build Frontend Assets
+# 9. Build Frontend Assets
 RUN npm install
 RUN npm run build
 
-# 9. Expose port 8080
+# 10. Expose port 8080
 EXPOSE 8080
 
-# 10. Start command
+# 11. Start command
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]

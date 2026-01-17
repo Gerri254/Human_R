@@ -25,24 +25,16 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 # 5. Set working directory
 WORKDIR /var/www
 
-# 6. Copy ONLY Composer files first (Better caching & debugging)
-COPY composer.json composer.lock .
-
-# 7. Install Dependencies (This verifies composer.json is there)
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
-
-# 8. Copy Application Files
+# 6. Copy application files
 COPY . .
 
-# 9. Finish Composer Setup (Scripts & Autoload)
-RUN composer dump-autoload --optimize
-
-# 10. Build Assets
+# 7. Install PHP and Node dependencies
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 RUN npm install
 RUN npm run build
 
-# 11. Expose port 8080
+# 8. Expose port 8080
 EXPOSE 8080
 
-# 12. Start command
+# 9. Start command
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]

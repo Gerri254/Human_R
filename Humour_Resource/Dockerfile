@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# 1. Install system dependencies
+# 1. Install system dependencies (Added libicu-dev for intl)
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -10,10 +10,12 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     libzip-dev \
+    libicu-dev \
     default-mysql-client
 
-# 2. Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+# 2. Install PHP extensions (Added intl)
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl
 
 # 3. Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -28,13 +30,15 @@ WORKDIR /var/www
 # 6. Copy application files
 COPY . .
 
-# 7. Install PHP and Node dependencies
+# 7. Install PHP dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# 8. Build Frontend Assets
 RUN npm install
 RUN npm run build
 
-# 8. Expose port 8080
+# 9. Expose port 8080
 EXPOSE 8080
 
-# 9. Start command
+# 10. Start command
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]

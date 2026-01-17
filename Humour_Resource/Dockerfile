@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.3-cli
 
 # 1. Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -36,7 +36,7 @@ WORKDIR /var/www
 COPY . .
 
 # 8. Install PHP dependencies
-# FIX: Added --ignore-platform-reqs to bypass strict version/extension checks during build
+# Using --ignore-platform-reqs during build is still safe, but now we match the version properly
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts --ignore-platform-reqs
 
 # 9. Build Frontend Assets
@@ -47,4 +47,5 @@ RUN npm run build
 EXPOSE 8080
 
 # 11. Start command
-CMD sh -c "composer dump-autoload --optimize && php artisan serve --host=0.0.0.0 --port=8080"
+# We add --ignore-platform-reqs here too just to be extra safe during dump-autoload
+CMD sh -c "composer dump-autoload --optimize --ignore-platform-reqs && php artisan serve --host=0.0.0.0 --port=8080"

@@ -28,13 +28,13 @@ class ContactController extends Controller
 
         $message = ContactMessage::create($validated);
 
-        // Send Email to Admin (Queue)
-        Mail::to(config('mail.from.address', 'admin@humourresource.com'))
-            ->send(new AdminContactNotification($message));
-
-        // Send Auto-Reply to User (Queue)
+        // 1. Send Auto-Reply to User (Priority - Immediate)
         Mail::to($message->email)
             ->send(new UserContactConfirmation($message));
+
+        // 2. Send Email to Admin (Queue with Delay to avoid Rate Limit)
+        Mail::to(config('mail.from.address', 'admin@humourresource.com'))
+            ->later(now()->addSeconds(15), new AdminContactNotification($message));
 
         return back()->with('success', 'Thank you! Your message has been received. We will be in touch shortly.');
     }

@@ -270,6 +270,64 @@
         </div>
     </section>
 
+    <!-- 2.5. Competitive Edge (Why Us - Atarah Style) -->
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="md:w-1/2">
+                    <p class="text-gold-600 font-bold uppercase tracking-[0.2em] text-xs mb-4">Why Partner With Us?</p>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-navy-900">The Humour Resource Edge</h2>
+                </div>
+                <div class="md:w-1/3 mt-6 md:mt-0">
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        We bridge the gap between hard data and soft skills. Our interventions are measurable, discreet, and tailored to your specific narrative.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Edge 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-50 rounded-full flex items-center justify-center mb-6 text-navy-900 group-hover:bg-navy-900 group-hover:text-gold-500 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Scientific Approach</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">We use psychometric profiling and network analysis. No guesswork, just data-driven human insights.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Behavioral Mapping</li>
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Impact Metrics</li>
+                    </ul>
+                </div>
+
+                <!-- Edge 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-50 rounded-full flex items-center justify-center mb-6 text-navy-900 group-hover:bg-navy-900 group-hover:text-gold-500 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Absolute Discretion</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Toxic cultures thrive on fear. We create safe containers for truth-telling, ensuring complete anonymity.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Confidential Audits</li>
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>NDA Protected</li>
+                    </ul>
+                </div>
+
+                <!-- Edge 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-50 rounded-full flex items-center justify-center mb-6 text-navy-900 group-hover:bg-navy-900 group-hover:text-gold-500 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Sustainable Change</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">We don't just fix the symptom; we rewrite the code so the bug doesn't come back. Long-term results.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Self-Healing Teams</li>
+                        <li class="flex items-center text-xs text-navy-800 font-medium"><svg class="w-3 h-3 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Resilience Training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 4. Methodology (Break) -->
     <section id="process" class="py-24 bg-navy-900 text-white relative">
         <div class="container mx-auto px-6 flex flex-col md:flex-row gap-16">

@@ -111,11 +111,6 @@
 
             <!-- 3. Right Actions (Desktop) -->
             <div class="hidden md:flex items-center space-x-6">
-                <!-- Client Portal Link -->
-                <a href="{{ route('portal.login') }}" class="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    Portal
-                </a>
                 <!-- CTA Button -->
                 <a href="{{ route('contact') }}" class="px-6 py-2.5 bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-widest rounded shadow-[0_0_15px_rgba(255,166,77,0.4)] hover:bg-white hover:text-navy-900 transition-all transform hover:-translate-y-0.5">
                     Book Strategy

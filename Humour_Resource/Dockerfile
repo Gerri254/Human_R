@@ -46,5 +46,5 @@ RUN npm run build
 EXPOSE 8080
 
 # 11. Start command
-# FIX: Run migrations and storage link on startup (Removed seeding to prevent data loss)
-CMD sh -c "php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=8080"
+# FIX: Run migrations, seed, and storage link on startup
+CMD sh -c "php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=8080"

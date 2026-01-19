@@ -107,6 +107,11 @@
                     Chronicles
                     <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
+                <a href="{{ route('contact') }}" class="hover:text-gold-500 transition-colors relative group flex items-center gap-2 {{ request()->routeIs('contact') ? 'text-gold-500' : '' }}">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Contact
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
             </div>
 
             <!-- 3. Right Actions (Desktop) -->

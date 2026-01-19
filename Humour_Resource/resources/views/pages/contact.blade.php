@@ -1,6 +1,6 @@
 <x-layout>
     <!-- Header -->
-    <header class="bg-navy-900 text-white pt-32 pb-20 text-center relative overflow-hidden">
+    <header class="bg-navy-900 text-white pt-40 pb-32 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div class="container mx-auto px-6 relative z-10">
             <p class="text-gold-500 font-bold uppercase tracking-[0.2em] mb-4 text-xs">Get in Touch</p>
@@ -9,7 +9,7 @@
     </header>
 
     <!-- Contact Section (Floating Card Style) -->
-    <section class="bg-gray-50 pb-24 -mt-10 relative z-20">
+    <section class="bg-gray-50 pb-24 -mt-20 relative z-20">
         <div class="container mx-auto px-6">
             <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
                 
@@ -120,8 +120,8 @@
         </div>
     </section>
 
-    <!-- Map Section (Full Width) -->
-    <div class="w-full h-[500px] grayscale-[0.8] hover:grayscale-0 transition-all duration-1000 ease-in-out border-y border-gray-200">
+    <!-- Map Section (Full Width - Flush with Footer) -->
+    <div class="mt-20 w-full h-[500px] grayscale-[0.8] hover:grayscale-0 transition-all duration-1000 ease-in-out border-t border-gray-200">
         <iframe 
             width="100%" 
             height="100%" 

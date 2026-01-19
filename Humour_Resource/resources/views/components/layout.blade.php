@@ -80,10 +80,8 @@
          class="fixed w-full z-50 transition-all duration-500">
         <div class="container mx-auto px-6 flex justify-between items-center relative">
             
-            <!-- 1. Logo (Left) -->
-            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-wide text-white relative z-50 group">
-                Humour<span class="text-gold-500 group-hover:text-white transition-colors duration-300">Resource</span>
-            </a>
+            <!-- 1. Logo Removed for Minimalist Look -->
+            <div class="w-32 hidden md:block"></div>
             
             <!-- 2. Centered Menu (Desktop) -->
             <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-x-24 text-sm font-bold tracking-widest uppercase text-white/80">
@@ -180,8 +178,9 @@
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><a href="{{ route('home') }}" class="hover:text-gold-500 transition-colors">Home</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-gold-500 transition-colors">About Us</a></li>
-                        <li><a href="{{ route('services') }}" class="hover:text-gold-500 transition-colors">Methodology</a></li>
+                        <li><a href="{{ route('services') }}" class="hover:text-gold-500 transition-colors">Services</a></li>
                         <li><a href="{{ route('blog') }}" class="hover:text-gold-500 transition-colors">The Chronicles</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-gold-500 transition-colors">Contact Us</a></li>
                         <li><a href="{{ route('portal.login') }}" class="hover:text-gold-500 transition-colors">Client Portal</a></li>
                     </ul>
                 </div>

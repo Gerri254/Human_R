@@ -64,14 +64,14 @@
             
             <div class="flex whitespace-nowrap animate-scroll hover:[animation-play-state:paused]">
                 <!-- Group 1 -->
-                <div class="flex items-center space-x-64 mx-32 pr-64">
-                    @foreach(['Safaricom', 'Equity', 'Microsoft', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn'] as $brand)
+                <div class="flex items-center space-x-32 mx-16 pr-32">
+                    @foreach(['Safaricom', 'Equity', 'Microsoft', 'Absa', 'KCB', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn', 'Oracle', 'Jubilee'] as $brand)
                         <span class="text-2xl font-serif font-bold text-gray-300 hover:text-navy-900 transition-colors duration-500 cursor-default select-none">{{ $brand }}</span>
                     @endforeach
                 </div>
                 <!-- Group 2 -->
-                <div class="flex items-center space-x-64 mx-32 pr-64">
-                    @foreach(['Safaricom', 'Equity', 'Microsoft', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn'] as $brand)
+                <div class="flex items-center space-x-32 mx-16 pr-32">
+                    @foreach(['Safaricom', 'Equity', 'Microsoft', 'Absa', 'KCB', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn', 'Oracle', 'Jubilee'] as $brand)
                         <span class="text-2xl font-serif font-bold text-gray-300 hover:text-navy-900 transition-colors duration-500 cursor-default select-none">{{ $brand }}</span>
                     @endforeach
                 </div>

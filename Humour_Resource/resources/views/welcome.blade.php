@@ -19,18 +19,18 @@
         <div class="container mx-auto px-6 relative z-10 text-center">
             
             <!-- Rotating Heading -->
-            <div class="h-40 md:h-64 relative mb-10">
+            <div class="h-40 md:h-56 relative mb-10">
                 <template x-for="(slide, index) in slides" :key="index">
                     <h1 x-show="activeSlide === index"
                         x-transition:enter="transition ease-out duration-1000 delay-300"
-                        x-transition:enter-start="opacity-0 translate-y-12 scale-90"
-                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        x-transition:enter-start="opacity-0 translate-y-12 scale-95"
+                        x-transition:enter-end="opacity-90 translate-y-0 scale-100"
                         x-transition:leave="transition ease-in duration-500"
-                        x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 -translate-y-12 scale-110"
-                        class="absolute inset-0 flex items-center justify-center text-6xl md:text-8xl font-serif font-black leading-[1.1] tracking-tight drop-shadow-2xl"
+                        x-transition:leave-start="opacity-90 scale-100"
+                        x-transition:leave-end="opacity-0 -translate-y-12 scale-105"
+                        class="absolute inset-0 flex items-center justify-center text-5xl md:text-7xl font-serif font-black leading-[1.1] tracking-tight drop-shadow-xl"
                     >
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gold-500 pb-2" x-text="slide"></span>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-300 via-white/90 to-gold-500/80 pb-2" x-text="slide"></span>
                     </h1>
                 </template>
             </div>
@@ -52,7 +52,7 @@
         </div>
     </header>
 
-    <!-- 1. Trust Strip (Text-Based Premium) -->
+    <!-- 1. Trust Strip (Strictly ICON-ONLY with Wide Spacing) -->
     <div class="bg-white border-b border-gray-100 py-12 overflow-hidden relative">
         <div class="container mx-auto px-6 mb-8 text-center text-gray-400">
             <p class="text-[9px] font-bold uppercase tracking-[0.5em] opacity-60">Institutional Partners</p>
@@ -64,13 +64,13 @@
             
             <div class="flex whitespace-nowrap animate-scroll hover:[animation-play-state:paused]">
                 <!-- Group 1 -->
-                <div class="flex items-center space-x-32 mx-16 pr-32">
+                <div class="flex items-center space-x-64 mx-32 pr-64">
                     @foreach(['Safaricom', 'Equity', 'Microsoft', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn'] as $brand)
                         <span class="text-2xl font-serif font-bold text-gray-300 hover:text-navy-900 transition-colors duration-500 cursor-default select-none">{{ $brand }}</span>
                     @endforeach
                 </div>
                 <!-- Group 2 -->
-                <div class="flex items-center space-x-32 mx-16 pr-32">
+                <div class="flex items-center space-x-64 mx-32 pr-64">
                     @foreach(['Safaricom', 'Equity', 'Microsoft', 'Britam', 'Andela', 'Google', 'TechFlow', 'Spotify', 'LinkedIn'] as $brand)
                         <span class="text-2xl font-serif font-bold text-gray-300 hover:text-navy-900 transition-colors duration-500 cursor-default select-none">{{ $brand }}</span>
                     @endforeach
@@ -78,6 +78,72 @@
             </div>
         </div>
     </div>
+
+    <!-- 1.5. Our Narrative (About Us - Atarah Style) -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <!-- Left: Text Content -->
+                <div class="md:w-1/2 relative z-10">
+                    <div class="inline-flex items-center space-x-2 mb-6">
+                        <span class="w-12 h-[2px] bg-gold-500"></span>
+                        <span class="text-gold-500 font-bold uppercase tracking-widest text-xs">Our Narrative</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-navy-900 mb-8 leading-tight">
+                        We Don't Just Consult.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 to-gold-400">We Rewrite Reality.</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg leading-relaxed mb-8">
+                        For over a decade, Humour Resource has been the silent architect behind some of Nairobi's most resilient corporate cultures. We believe that every organization is a story, and every employee is a character waiting for a better plot.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-8 border-t border-gray-100 pt-8">
+                        <div>
+                            <h4 class="text-navy-900 font-bold text-xl mb-2 flex items-center">
+                                <svg class="w-5 h-5 text-gold-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                Our Mission
+                            </h4>
+                            <p class="text-sm text-gray-500">To dismantle toxic workplace dynamics through radical honesty and strategic narrative intervention.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-navy-900 font-bold text-xl mb-2 flex items-center">
+                                <svg class="w-5 h-5 text-gold-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Our Vision
+                            </h4>
+                            <p class="text-sm text-gray-500">A corporate world where "Human Resources" actually emphasizes the Human.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <a href="{{ route('about') }}" class="text-navy-900 font-bold border-b-2 border-gold-500 hover:text-gold-600 hover:border-navy-900 transition-all pb-1 inline-flex items-center group">
+                            Read Our Full Story 
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Visual with Badge -->
+                <div class="md:w-1/2 relative">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-navy-50 rounded-full z-0"></div>
+                    <div class="absolute -left-4 -top-4 w-24 h-24 bg-gold-500/10 rounded-full z-0 blur-xl"></div>
+                    
+                    <div class="relative z-10 rounded-tr-[4rem] rounded-bl-[4rem] overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" 
+                             alt="Consulting Team" 
+                             class="w-full h-[500px] object-cover">
+                        
+                        <!-- Experience Badge -->
+                        <div class="absolute bottom-0 right-0 bg-navy-900 text-white p-8 rounded-tl-[2rem]">
+                            <div class="text-center">
+                                <span class="block text-5xl font-serif font-bold text-gold-500">10+</span>
+                                <span class="block text-xs uppercase tracking-widest mt-2 font-medium opacity-80">Years of<br>Excellence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 2. Services Grid -->
     <section id="expertise" class="py-24 bg-white" 

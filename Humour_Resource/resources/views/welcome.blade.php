@@ -145,6 +145,57 @@
         </div>
     </section>
 
+    <!-- 1.6. Core Values (Atarah Style - Navy Band) -->
+    <section class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <!-- Subtle Pattern -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-gold-500 font-bold uppercase tracking-[0.2em] text-xs mb-4">Our DNA</p>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold">The Values That Drive Us</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Value 1 -->
+                <div class="group bg-navy-800 p-8 rounded-xl border border-white/5 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">Radical Honesty</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We speak the truths that others whisper. Change starts with facing reality.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="group bg-navy-800 p-8 rounded-xl border border-white/5 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">Strategic Empathy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Understanding the 'Why' behind every employee behavior is our superpower.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="group bg-navy-800 p-8 rounded-xl border border-white/5 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">Narrative Precision</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We don't guess. We map your organizational story with data-backed accuracy.</p>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="group bg-navy-800 p-8 rounded-xl border border-white/5 hover:border-gold-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors">
+                        <svg class="w-6 h-6 text-gold-500 group-hover:text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">Unapologetic Growth</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We push you out of your comfort zone because that's where the magic happens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 2. Services Grid -->
     <section id="expertise" class="py-24 bg-white" 
         @keydown.escape.window="serviceModalOpen = false"

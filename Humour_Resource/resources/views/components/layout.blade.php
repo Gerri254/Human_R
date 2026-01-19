@@ -73,20 +73,48 @@
 </head>
 <body class="font-sans antialiased text-gray-800 bg-white overflow-x-hidden" x-data="{ mobileMenuOpen: false }">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-navy-900/95 backdrop-blur-sm border-b border-white/10 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-wide text-white relative z-50">
-                Humour<span class="text-gold-500">Resource</span>
+    <!-- Navigation (Atarah Style - Centered Menu + Right Actions) -->
+    <nav x-data="{ scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 50)"
+         :class="{ 'bg-navy-900/95 backdrop-blur-md shadow-lg py-4': scrolled, 'bg-transparent py-6': !scrolled }"
+         class="fixed w-full z-50 transition-all duration-500 border-b border-white/10">
+        <div class="container mx-auto px-6 flex justify-between items-center relative">
+            
+            <!-- 1. Logo (Left) -->
+            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-wide text-white relative z-50 group">
+                Humour<span class="text-gold-500 group-hover:text-white transition-colors duration-300">Resource</span>
             </a>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase items-center">
-                <a href="{{ route('about') }}" class="text-gray-300 hover:text-gold-500 transition-colors {{ request()->routeIs('about') ? 'text-gold-500' : '' }}">About</a>
-                <a href="{{ route('services') }}" class="text-gray-300 hover:text-gold-500 transition-colors {{ request()->routeIs('services') ? 'text-gold-500' : '' }}">Services</a>
-                <a href="{{ route('blog') }}" class="text-gray-300 hover:text-gold-500 transition-colors {{ request()->routeIs('blog') ? 'text-gold-500' : '' }}">Narratives</a>
-                <a href="{{ route('contact') }}" class="px-6 py-2 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 transition-all rounded-sm {{ request()->routeIs('contact') ? 'bg-gold-500 text-navy-900' : '' }}">
-                    Get in Touch
+            <!-- 2. Centered Menu (Desktop) -->
+            <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-x-20 text-sm font-bold tracking-widest uppercase text-white/80">
+                <a href="{{ route('home') }}" class="hover:text-gold-500 transition-colors relative group {{ request()->routeIs('home') ? 'text-gold-500' : '' }}">
+                    Home
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('about') }}" class="hover:text-gold-500 transition-colors relative group {{ request()->routeIs('about') ? 'text-gold-500' : '' }}">
+                    About
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('services') }}" class="hover:text-gold-500 transition-colors relative group {{ request()->routeIs('services') ? 'text-gold-500' : '' }}">
+                    Services
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('blog') }}" class="hover:text-gold-500 transition-colors relative group {{ request()->routeIs('blog') ? 'text-gold-500' : '' }}">
+                    Chronicles
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <!-- 3. Right Actions (Desktop) -->
+            <div class="hidden md:flex items-center space-x-6">
+                <!-- Client Portal Link -->
+                <a href="{{ route('portal.login') }}" class="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Portal
+                </a>
+                <!-- CTA Button -->
+                <a href="{{ route('contact') }}" class="px-6 py-2.5 bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-widest rounded shadow-[0_0_15px_rgba(255,166,77,0.4)] hover:bg-white hover:text-navy-900 transition-all transform hover:-translate-y-0.5">
+                    Book Strategy
                 </a>
             </div>
 
@@ -122,36 +150,75 @@
     <!-- Page Content -->
     {{ $slot }}
 
-    <!-- Footer -->
-    <footer class="bg-navy-950 text-white py-12 border-t border-navy-900">
+    <!-- Footer (Atarah Style - 4 Column) -->
+    <footer class="bg-navy-900 text-white border-t border-gold-500/20 pt-20 pb-10">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0 text-center md:text-left">
-                    <h5 class="text-2xl font-serif font-bold text-white mb-1">Humour<span class="text-gold-500">Resource</span></h5>
-                    <p class="text-gray-500 text-sm">© {{ date('Y') }} NarrativeHR Excellence Platform.</p>
-                    <div class="mt-3">
-                         <a href="{{ route('portal.login') }}" class="text-gray-400 hover:text-gold-500 transition-colors text-sm flex items-center gap-2 justify-center md:justify-start">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            Client Portal
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Col 1: Brand -->
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-6 text-white">Humour<span class="text-gold-500">Resource</span></h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm">
+                        Strategic HR consultancy transforming corporate cultures through the power of narrative and psychological safety.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
                     </div>
                 </div>
-                <div class="flex space-x-6 items-center">
-                    <!-- LinkedIn -->
-                    <a href="#" class="text-gray-500 hover:text-gold-500 transition-colors transform hover:scale-110 duration-200">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <!-- Twitter / X -->
-                    <a href="#" class="text-gray-500 hover:text-gold-500 transition-colors transform hover:scale-110 duration-200">
-                        <span class="sr-only">Twitter</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="#" class="text-gray-500 hover:text-gold-500 transition-colors transform hover:scale-110 duration-200">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gold-500/30 pb-2 inline-block">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="{{ route('home') }}" class="hover:text-gold-500 transition-colors">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-gold-500 transition-colors">About Us</a></li>
+                        <li><a href="{{ route('services') }}" class="hover:text-gold-500 transition-colors">Methodology</a></li>
+                        <li><a href="{{ route('blog') }}" class="hover:text-gold-500 transition-colors">The Chronicles</a></li>
+                        <li><a href="{{ route('portal.login') }}" class="hover:text-gold-500 transition-colors">Client Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gold-500/30 pb-2 inline-block">Core Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Culture Transformation</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Executive Coaching</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Conflict Resolution</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Narrative Strategy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gold-500/30 pb-2 inline-block">Get In Touch</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gold-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Westlands, Nairobi, Kenya<br>The Mirage, Tower 2</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-gold-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span>+254 700 123 456</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-gold-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <span>hello@humourresource.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 uppercase tracking-widest">
+                <p>&copy; {{ date('Y') }} Humour Resource. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

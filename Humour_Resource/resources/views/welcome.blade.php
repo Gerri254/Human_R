@@ -36,9 +36,12 @@
             </div>
 
             <!-- Subtext -->
-            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-                We don't just fix policies; we rewrite the stories that drive your culture. Move beyond compliance into the era of human connection.
-            </p>
+            <div class="max-w-2xl mx-auto mb-12 border-l-2 border-gold-500/50 pl-8 text-left md:text-center md:border-l-0 md:pl-0">
+                <p class="text-xl md:text-2xl text-gray-200 font-light leading-relaxed drop-shadow-md">
+                    We don't just fix policies; we <span class="text-gold-400 italic font-serif">rewrite the stories</span> that drive your culture. 
+                    Move beyond compliance into the <span class="text-white font-medium border-b border-gold-500/30">era of human connection.</span>
+                </p>
+            </div>
 
             <!-- Dual CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-6">
@@ -239,7 +242,36 @@
             </div>
         </div>
 
-        <!-- Modal Structure remains similar but cleaner -->
+        <!-- 2.5. Impact Stats (Kenyan Context - High Visibility) -->
+        <section class="py-16 bg-navy-900 text-white border-y-4 border-gold-500 my-12 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                    <!-- Stat 1 -->
+                    <div class="text-center group">
+                        <span class="block text-4xl md:text-5xl font-serif font-bold text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-300">120+</span>
+                        <span class="block text-[10px] uppercase tracking-[0.3em] text-gray-300 font-bold group-hover:text-white transition-colors">Culture Audits</span>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="text-center group">
+                        <span class="block text-4xl md:text-5xl font-serif font-bold text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-300">8.5k</span>
+                        <span class="block text-[10px] uppercase tracking-[0.3em] text-gray-300 font-bold group-hover:text-white transition-colors">Staff Empowered</span>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="text-center group">
+                        <span class="block text-4xl md:text-5xl font-serif font-bold text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-300">15+</span>
+                        <span class="block text-[10px] uppercase tracking-[0.3em] text-gray-300 font-bold group-hover:text-white transition-colors">Industries Led</span>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="text-center group">
+                        <span class="block text-4xl md:text-5xl font-serif font-bold text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-300">100%</span>
+                        <span class="block text-[10px] uppercase tracking-[0.3em] text-gray-300 font-bold group-hover:text-white transition-colors">Discretion Rate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Modal -->
         <div x-show="serviceModalOpen" x-cloak class="fixed inset-0 z-[60] overflow-y-auto" role="dialog" aria-modal="true">
             <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <div class="fixed inset-0 bg-navy-900/80 transition-opacity" @click="closeModal()"></div>
@@ -327,6 +359,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- 4. Methodology (Break) -->
     <section id="process" class="py-24 bg-navy-900 text-white relative">

@@ -1,46 +1,53 @@
 <x-layout>
-    <!-- Hero Section -->
-    <header class="relative bg-navy-900 text-white min-h-[90vh] flex items-center pt-20 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500 via-navy-900 to-navy-900"></div>
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <!-- Hero Section (Atarah Style - Centered Authority) -->
+    <header class="relative bg-navy-900 text-white min-h-screen flex items-center justify-center overflow-hidden" x-data="{ activeSlide: 0, slides: ['Corporate Strategy Meets Narrative', 'Fixing Toxic Workplace Culture', 'Building Resilient Leaders'] }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)">
         
-        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
-            <!-- Left: Text -->
-            <div x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 200)" :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-10': !shown }" class="transition-all duration-1000 ease-out">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 border border-gold-500/30 rounded-full bg-gold-500/10 text-gold-500 text-xs font-bold tracking-widest uppercase mb-6">
-                    <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
-                    <span>Redefining HR Consultancy</span>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
-                    Corporate Strategy <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600 italic">Meets Narrative</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-xl mb-10 font-light leading-relaxed">
-                    We don't just fix policies; we rewrite the stories that drive your culture. Move beyond compliance into the era of human connection.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('services') }}" class="inline-flex justify-center items-center bg-gold-500 text-navy-900 font-bold py-4 px-8 rounded hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(255,166,77,0.4)] transform hover:-translate-y-1">
-                        Start Your Journey
-                    </a>
-                    <a href="{{ route('blog') }}" class="inline-flex justify-center items-center border border-white/20 text-white font-medium py-4 px-8 rounded hover:bg-white/5 transition-all duration-300">
-                        Read Chronicles
-                    </a>
-                </div>
-            </div>
+        <!-- Dynamic Background Image (Parallax) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 animate-pulse-slow" alt="Background">
+            <!-- Heavy Navy Overlay for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-900/90 via-navy-900/80 to-navy-900"></div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-[128px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-navy-700/30 rounded-full blur-[128px]"></div>
+        </div>
+        
+        <!-- Centered Content -->
+        <div class="container mx-auto px-6 relative z-10 text-center">
             
-            <!-- Right: Visual -->
-            <div class="hidden md:block relative group">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gold-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform transition-transform duration-700 group-hover:scale-[1.02]">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
-                         alt="Strategic Boardroom" 
-                         class="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
-                    <div class="absolute bottom-8 left-8 bg-white/95 backdrop-blur px-6 py-4 rounded-lg shadow-xl border-l-4 border-gold-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <p class="text-navy-900 font-bold text-lg">150+ Companies</p>
-                        <p class="text-gray-500 text-xs uppercase tracking-wide">Transformed</p>
-                    </div>
-                </div>
+            <!-- Rotating Heading -->
+            <div class="h-40 md:h-64 relative mb-10">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <h1 x-show="activeSlide === index"
+                        x-transition:enter="transition ease-out duration-1000 delay-300"
+                        x-transition:enter-start="opacity-0 translate-y-12 scale-90"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave="transition ease-in duration-500"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 -translate-y-12 scale-110"
+                        class="absolute inset-0 flex items-center justify-center text-6xl md:text-8xl font-serif font-black leading-[1.1] tracking-tight drop-shadow-2xl"
+                    >
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gold-500 pb-2" x-text="slide"></span>
+                    </h1>
+                </template>
+            </div>
+
+            <!-- Subtext -->
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                We don't just fix policies; we rewrite the stories that drive your culture. Move beyond compliance into the era of human connection.
+            </p>
+
+            <!-- Dual CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="{{ route('contact') }}" class="inline-flex justify-center items-center bg-gold-500 text-navy-900 font-bold py-4 px-10 rounded hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(255,166,77,0.4)] transform hover:-translate-y-1 text-sm uppercase tracking-widest">
+                    Start Your Journey
+                </a>
+                <a href="{{ route('services') }}" class="inline-flex justify-center items-center border border-white/20 text-white font-bold py-4 px-10 rounded hover:bg-white/10 transition-all duration-300 text-sm uppercase tracking-widest backdrop-blur-sm">
+                    Explore Solutions
+                </a>
             </div>
         </div>
     </header>

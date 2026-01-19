@@ -13,14 +13,19 @@ export default {
       },
       colors: {
         navy: {
-            900: '#0A192F',
-            800: '#112240',
-            700: '#233554',
+            900: '#00264d', // User: Deep Royal Navy (Primary Brand)
+            800: '#003366', // Slightly lighter for cards/sections
+            700: '#004080', // Hover states
         },
         gold: {
-            400: '#D4AF37',
-            500: '#C5A059',
-            600: '#B08D55',
+            400: '#ffb366', // Lighter (Hover effects)
+            500: '#ffa64d', // User: Vibrant Sunset Orange (Buttons/Highlights)
+            600: '#cc7a00', // Darker (Text/Borders)
+        },
+        gray: {
+            50: '#F9FAFB',
+            100: '#F3F4F6',
+            200: '#E5E7EB',
         },
         whatsapp: '#25D366'
       },

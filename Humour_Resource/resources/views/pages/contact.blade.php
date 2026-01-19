@@ -73,45 +73,52 @@
                 <div class="md:w-7/12 bg-white p-12">
                     <h3 class="text-2xl font-serif font-bold text-navy-900 mb-6">Send us a message</h3>
                     
-                    <form action="#" method="POST" class="space-y-6">
+                    @if(session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                        @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-bold text-navy-900 mb-2">First Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="John">
+                                <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="John">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-navy-900 mb-2">Last Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="Doe">
+                                <input type="text" name="last_name" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="Doe">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-bold text-navy-900 mb-2">Email Address</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="john@company.com">
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="john@company.com">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="+254 700 000 000">
+                                <input type="text" name="phone" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="+254 700 000 000">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-bold text-navy-900 mb-2">Subject</label>
-                            <select class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors">
-                                <option>General Inquiry</option>
-                                <option>Consultancy Request</option>
-                                <option>Speaking Engagement</option>
-                                <option>Partnership</option>
+                            <select name="subject" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Consultancy Request">Consultancy Request</option>
+                                <option value="Speaking Engagement">Speaking Engagement</option>
+                                <option value="Partnership">Partnership</option>
                             </select>
                         </div>
 
                         <div>
                             <label class="block text-sm font-bold text-navy-900 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="How can we help you?"></textarea>
+                            <textarea name="message" required rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-gray-200 focus:border-gold-500 focus:ring-0 transition-colors" placeholder="How can we help you?"></textarea>
                         </div>
 
-                        <button class="w-full bg-gold-500 text-navy-900 font-bold py-4 rounded-lg hover:bg-gold-600 transition-colors shadow-lg">
+                        <button type="submit" class="w-full bg-gold-500 text-navy-900 font-bold py-4 rounded-lg hover:bg-gold-600 transition-colors shadow-lg">
                             Send Message
                         </button>
                     </form>
